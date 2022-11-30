@@ -1,8 +1,8 @@
-import { Title, Input } from './Filter.styled';
+import { Title, Input, Board } from './Filter.styled';
 
 const Filter = ({ value, changeFilter }) => {
   return (
-    <div>
+    <Board>
       <Title>Find contacts by name</Title>
       <Input
         onChange={changeFilter}
@@ -11,7 +11,7 @@ const Filter = ({ value, changeFilter }) => {
         value={value}
         placeholder="Введите имя для поиска"
       />
-    </div>
+    </Board>
   );
 };
 export default Filter;

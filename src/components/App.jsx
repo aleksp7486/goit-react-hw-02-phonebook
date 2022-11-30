@@ -16,7 +16,7 @@ export class App extends Component {
     ],
     filter: '',
   };
-  onFormSubmit = ({ name, number }) => {
+  onFormSubmit = ({ name, number }, { resetForm }) => {
     const { contacts } = this.state;
     if (contacts.find(contact => contact.name === name)) {
       alert(`${name} is already in contacts`);
@@ -34,6 +34,7 @@ export class App extends Component {
     this.setState(prevState => ({
       contacts: [...prevState.contacts, newContact],
     }));
+    resetForm();
   };
   changeFilter = e => {
     this.setState({ filter: e.target.value });

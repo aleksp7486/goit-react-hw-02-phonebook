@@ -1,57 +1,54 @@
-import { Component } from 'react';
-import { Form, Label, Input, Btn } from './ContactForm.styled';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
+import { Formik, Form } from 'formik';
+import { Label, Input, Btn, Error } from './ContactForm.styled';
+import * as yup from 'yup';
 
-const INITIAL_STATE = {
+const initialValues = {
   name: '',
   number: '',
 };
 
-export class ContactForm extends Component {
-  state = { ...INITIAL_STATE };
-  handleChange = e => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
+const schema = yup.object().shape({
+  name: yup
+    .string()
+    .matches(/^[A-Za-z ]*$/, 'Пожалуйста, введите действительное имя')
+    .max(40)
+    .required(),
+  number: yup
+    .number()
+    .typeError('Это не похоже на номер телефона')
+    .positive('Номер телефона не может начинаться с минуса')
+    .integer('Номер телефона не может содержать десятичную точку')
+    .min(8)
+    .required('Укажите номер телефона'),
+});
 
-  handleSubmit = e => {
-    const { onFormSubmit } = this.props;
-    e.preventDefault();
-    onFormSubmit(this.state);
-    this.reset();
-  };
-
-  reset = () => {
-    this.setState({ ...INITIAL_STATE });
-  };
-
-  render() {
-    return (
-      <Form onSubmit={this.handleSubmit}>
+export const ContactForm = ({ onFormSubmit }) => {
+  return (
+    <Formik
+      initialValues={initialValues}
+      validationSchema={schema}
+      onSubmit={onFormSubmit}
+    >
+      <Form>
+        <Error name="name" component="div" />
         <Label htmlFor="name">
           Name:
           <Input
-            onChange={this.handleChange}
             type="text"
             name="name"
             id="name"
-            value={this.state.name}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            placeholder="Введите ваше имя"
+            placeholder="Введите имя"
             required
           />
         </Label>
+        <Error name="number" component="div" />
         <Label htmlFor="number">
           Number:
           <Input
-            onChange={this.handleChange}
             type="tel"
             name="number"
             id="number"
-            value={this.state.number}
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             placeholder="Введите номер телефона"
             required
           />
@@ -63,8 +60,8 @@ export class ContactForm extends Component {
           Add contact
         </Btn>
       </Form>
-    );
-  }
-}
+    </Formik>
+  );
+};
 
 export default ContactForm;

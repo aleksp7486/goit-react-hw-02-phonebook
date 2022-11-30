@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-export const Form = styled.form``;
+import { Field, ErrorMessage } from 'formik';
 
 export const Label = styled.label`
   display: flex;
@@ -8,10 +7,16 @@ export const Label = styled.label`
   margin-bottom: ${p => p.theme.space[3]}px;
 `;
 
-export const Input = styled.input`
+export const Input = styled(Field)`
   margin-left: auto;
   width: 100%;
   max-width: 72%;
+`;
+
+export const Error = styled(ErrorMessage)`
+  font-size: 14px;
+  color: red;
+  text-align: right;
 `;
 
 export const Btn = styled.button`
