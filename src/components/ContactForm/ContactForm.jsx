@@ -9,11 +9,7 @@ const initialValues = {
 };
 
 const schema = yup.object().shape({
-  name: yup
-    .string()
-    .matches(/^[A-Za-z ]*$/, 'Пожалуйста, введите действительное имя')
-    .max(40)
-    .required(),
+  name: yup.string().max(40).required('Укажите имя'),
   number: yup
     .number()
     .typeError('Это не похоже на номер телефона')
