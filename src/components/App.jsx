@@ -57,7 +57,7 @@ export class App extends Component {
     const filteredContacts = this.getFilteredContacts();
     return (
       <Box pt="120px">
-        <Box m="auto" p={4} maxWidth="350px" bg="#b6edf2" borderRadius={4}>
+        <Box m="auto" p={4} maxWidth="350px" bg="#d4e1e3" borderRadius={4}>
           <Section title="Phonebook">
             <ContactForm onFormSubmit={this.onFormSubmit} />
           </Section>

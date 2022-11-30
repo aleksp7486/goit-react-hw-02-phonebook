@@ -11,7 +11,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   margin-left: auto;
   width: 100%;
-  max-width: 75%;
+  max-width: 72%;
 `;
 
 export const Btn = styled.button`
