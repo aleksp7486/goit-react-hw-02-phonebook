@@ -59,7 +59,7 @@ export class App extends Component {
     return (
       <Box pt="120px">
         <Box m="auto" p={4} maxWidth="350px" bg="#d4e1e3" borderRadius={4}>
-          <Section title="Phonebook">
+          <Section>
             <ContactForm onFormSubmit={this.onFormSubmit} />
           </Section>
           <Section title="Contacts">

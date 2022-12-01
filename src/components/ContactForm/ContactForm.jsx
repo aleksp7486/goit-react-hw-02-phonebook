@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 import { Formik, Form } from 'formik';
 import { Label, Input, Btn, Error } from './ContactForm.styled';
@@ -15,7 +16,7 @@ const schema = yup.object().shape({
     .typeError('Это не похоже на номер телефона')
     .positive('Номер телефона не может начинаться с минуса')
     .integer('Номер телефона не может содержать десятичную точку')
-    .min(8)
+    .min(8, 'Число должно быть больше или равно 8')
     .required('Укажите номер телефона'),
 });
 
@@ -58,6 +59,10 @@ export const ContactForm = ({ onFormSubmit }) => {
       </Form>
     </Formik>
   );
+};
+
+ContactForm.propTypes = {
+  onFormSubmit: PropTypes.func.isRequired,
 };
 
 export default ContactForm;

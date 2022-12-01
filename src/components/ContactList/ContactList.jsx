@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Item, Text, Icon, Number, Btn } from './ContactList.styled';
 import { BsFillPersonFill, BsFillPersonXFill } from 'react-icons/bs';
 
@@ -23,6 +24,11 @@ const ContactList = ({ contacts, deleteContact }) => {
       })}
     </ul>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object),
+  deleteContact: PropTypes.func.isRequired,
 };
 
 export default ContactList;

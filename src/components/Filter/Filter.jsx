@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Title, Input, Board } from './Filter.styled';
 
 const Filter = ({ value, changeFilter }) => {
@@ -14,4 +15,10 @@ const Filter = ({ value, changeFilter }) => {
     </Board>
   );
 };
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  changeFilter: PropTypes.func.isRequired,
+};
+
 export default Filter;
