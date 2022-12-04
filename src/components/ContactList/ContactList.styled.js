@@ -29,11 +29,9 @@ export const Btn = styled.button`
   justify-content: center;
   align-items: center;
   margin-left: auto;
-
   padding: ${p => p.theme.space[3]}px ${p => p.theme.space[3]}px;
   color: ${p => p.theme.colors.white};
   background-color: ${p => p.theme.colors.primary};
-  border-radius: 4px;
   cursor: pointer;
   transition: background-color 200ms ease-in;
   :hover {
