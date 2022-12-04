@@ -8,12 +8,7 @@ import Filter from './Filter';
 
 export class App extends Component {
   state = {
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
+    contacts: [],
     filter: '',
   };
   onFormSubmit = ({ name, number }, { resetForm }) => {
@@ -58,8 +53,8 @@ export class App extends Component {
     const filteredContacts = this.getFilteredContacts();
     return (
       <Box pt="120px">
-        <Box m="auto" p={4} maxWidth="350px" bg="#d4e1e3" borderRadius={4}>
-          <Section>
+        <Box m="auto" p={4} maxWidth="350px" bg="#cfe5e7">
+          <Section title="Phonebook">
             <ContactForm onFormSubmit={this.onFormSubmit} />
           </Section>
           <Section title="Contacts">

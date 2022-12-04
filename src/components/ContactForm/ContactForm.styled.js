@@ -2,15 +2,16 @@ import styled from 'styled-components';
 import { Field, ErrorMessage } from 'formik';
 
 export const Label = styled.label`
-  display: flex;
-  gap: 10px;
-  margin-bottom: ${p => p.theme.space[3]}px;
+  display: block;
+  font-size: ${p => p.theme.fontSizes.m};
+  margin-bottom: ${p => p.theme.space[2]}px;
 `;
 
 export const Input = styled(Field)`
-  margin-left: auto;
+  display: block;
   width: 100%;
-  max-width: 72%;
+
+  margin-bottom: ${p => p.theme.space[3]}px;
 `;
 
 export const Error = styled(ErrorMessage)`
@@ -24,13 +25,11 @@ export const Btn = styled.button`
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  /* height: 22px; */
   padding: ${p => p.theme.space[3]}px ${p => p.theme.space[3]}px;
   color: ${p => p.theme.colors.white};
   font-weight: 700;
   background-color: ${p => p.theme.colors.primary};
   border: 0;
-  border-radius: ${p => p.theme.radii.normal};
   cursor: pointer;
   transition: background-color 200ms ease-in;
   span {

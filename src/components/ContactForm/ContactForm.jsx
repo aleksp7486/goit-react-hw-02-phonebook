@@ -28,28 +28,19 @@ export const ContactForm = ({ onFormSubmit }) => {
       onSubmit={onFormSubmit}
     >
       <Form>
+        <Label>Name:</Label>
+        <Input type="text" name="name" placeholder="Введите имя" required />
         <Error name="name" component="div" />
-        <Label htmlFor="name">
-          Name:
-          <Input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Введите имя"
-            required
-          />
-        </Label>
+
+        <Label>Number: </Label>
+        <Input
+          type="tel"
+          name="number"
+          placeholder="Введите номер телефона"
+          required
+        />
         <Error name="number" component="div" />
-        <Label htmlFor="number">
-          Number:
-          <Input
-            type="tel"
-            name="number"
-            id="number"
-            placeholder="Введите номер телефона"
-            required
-          />
-        </Label>
+
         <Btn type="submit">
           <span>
             <BsFillPersonPlusFill />
