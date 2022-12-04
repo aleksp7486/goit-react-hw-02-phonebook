@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Field, ErrorMessage } from 'formik';
 
 export const Label = styled.label`
-  display: block;
+  display: flex;
+  justify-content: space-between;
   font-size: ${p => p.theme.fontSizes.m};
   margin-bottom: ${p => p.theme.space[2]}px;
 `;
@@ -17,7 +18,6 @@ export const Input = styled(Field)`
 export const Error = styled(ErrorMessage)`
   font-size: 14px;
   color: red;
-  text-align: right;
 `;
 
 export const Btn = styled.button`
